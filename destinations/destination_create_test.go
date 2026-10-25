@@ -51,3 +51,20 @@ func assertDestination(t *testing.T, d destinations.DestinationDetails) {
 	testutils.AssertEqual(t, d.CreatedAt, int64(1760000000000))
 	testutils.AssertEqual(t, d.UpdatedBy, "ops@acme.com")
 }
+
+func TestCreateDestinationSendsAnEmptyConfig(t *testing.T) {
+	t.Parallel()
+
+	client, mockClient := testutils.CreateTestClient()
+	mockClient.When(http.MethodPost, "/api/v2/destinations").ThenCall(func(req *http.Request) (*http.Response, error) {
+		testutils.AssertEqual(t, testutils.RequestBodyToJSON(t, req), map[string]any{
+			"name": "d", "connector_id": "blackhole_sf", "config": map[string]any{},
+		})
+
+		return mock.NewResponse(req, http.StatusOK, destinationResponse), nil
+	})
+
+	if _, err := client.CreateDestination().Name("d").ConnectorID("blackhole_sf").Config(map[string]any{}).Do(t.Context()); err != nil {
+		t.Fatal(err)
+	}
+}

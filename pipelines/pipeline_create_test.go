@@ -85,3 +85,25 @@ func TestCreatePipelineOmitsUnsetOptions(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestCreatePipelineSendsAnEmptySourceConfig(t *testing.T) {
+	t.Parallel()
+
+	client, mockClient := testutils.CreateTestClient()
+	mockClient.When(http.MethodPost, "/api/v2/pipelines").ThenCall(func(req *http.Request) (*http.Response, error) {
+		testutils.AssertEqual(t, testutils.RequestBodyToJSON(t, req), map[string]any{
+			"name":   "p",
+			"source": map[string]any{"connector_id": "automation_sdp_demo", "config": map[string]any{}},
+		})
+
+		return mock.NewResponse(req, http.StatusOK, pipelineResponse("Success")), nil
+	})
+
+	_, err := client.CreatePipeline().
+		Name("p").
+		Source(hevo.NewSource().ConnectorID("automation_sdp_demo").Config(map[string]any{})).
+		Do(t.Context())
+	if err != nil {
+		t.Fatal(err)
+	}
+}

@@ -61,6 +61,15 @@ func (s *CreateDestinationService) request() *destinationCreateRequest {
 		Name:        s.name,
 		ConnectorID: s.connectorID,
 		Type:        s.destType,
-		Config:      s.config,
+		Config:      configPointer(s.config),
 	}
+}
+
+// configPointer keeps an empty config in the body, as {}; a config never set is left out.
+func configPointer(config map[string]any) *map[string]any {
+	if config == nil {
+		return nil
+	}
+
+	return &config
 }

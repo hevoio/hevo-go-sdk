@@ -13,7 +13,7 @@ type sourceRequest struct {
 	Name        *string            `json:"name,omitempty"`
 	ConnectorID *string            `json:"connector_id,omitempty"`
 	Type        *string            `json:"type,omitempty"`
-	Config      map[string]any     `json:"config,omitempty"`
+	Config      *map[string]any    `json:"config,omitempty"`
 	Auth        *sourceAuthRequest `json:"auth,omitempty"`
 }
 
@@ -64,7 +64,17 @@ func (s *Source) request() *sourceRequest {
 		Name:        s.name,
 		ConnectorID: s.connectorID,
 		Type:        s.sourceType,
-		Config:      s.config,
+		Config:      configPointer(s.config),
 		Auth:        s.auth.request(),
 	}
+}
+
+// configPointer keeps an empty config in the body, as {}: a connector with no required settings
+// still takes a config object. A config never set is left out.
+func configPointer(config map[string]any) *map[string]any {
+	if config == nil {
+		return nil
+	}
+
+	return &config
 }

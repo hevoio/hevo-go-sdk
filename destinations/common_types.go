@@ -31,10 +31,10 @@ type DestinationsListResponse struct {
 }
 
 type destinationCreateRequest struct {
-	Name        *string        `json:"name,omitempty"`
-	ConnectorID *string        `json:"connector_id,omitempty"`
-	Type        *string        `json:"type,omitempty"`
-	Config      map[string]any `json:"config,omitempty"`
+	Name        *string         `json:"name,omitempty"`
+	ConnectorID *string         `json:"connector_id,omitempty"`
+	Type        *string         `json:"type,omitempty"`
+	Config      *map[string]any `json:"config,omitempty"`
 }
 
 type destinationUpdateRequest struct {
