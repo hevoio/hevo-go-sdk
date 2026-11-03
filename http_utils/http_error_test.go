@@ -40,6 +40,13 @@ func TestNewResponseError(t *testing.T) {
 			expectedMessage: "Something went wrong.",
 			expectedString:  "hevo: 500 INTERNAL_ERROR: Something went wrong. (error reference abc)",
 		},
+		{
+			name:            "error reference already in the message",
+			status:          http.StatusInternalServerError,
+			body:            `{"code":"INTERNAL_ERROR","message":"Contact support with error reference id: abc","error_reference_id":"abc"}`,
+			expectedMessage: "Contact support with error reference id: abc",
+			expectedString:  "hevo: 500 INTERNAL_ERROR: Contact support with error reference id: abc",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

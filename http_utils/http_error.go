@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -61,7 +62,8 @@ func (e *ResponseError) Error() string {
 	}
 
 	s += ": " + msg
-	if e.ErrorReferenceID != "" {
+	// Hevo's message often names the reference already; it is added only when it does not.
+	if e.ErrorReferenceID != "" && !strings.Contains(msg, e.ErrorReferenceID) {
 		s += " (error reference " + e.ErrorReferenceID + ")"
 	}
 
