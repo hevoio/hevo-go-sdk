@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // ResyncPipelineService reloads every selected object from the start. It runs asynchronously.

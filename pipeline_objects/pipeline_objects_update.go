@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
-	"github.com/hevoio/hevo-go/pipelines"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
+	"github.com/hevoio/hevo-go-sdk/pipelines"
 )
 
 // UpdatePipelineObjectsService changes which objects a Pipeline replicates. SelectionMode says

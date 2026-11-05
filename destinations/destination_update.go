@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // UpdateDestinationService changes a Destination's name or settings. Only the fields set are

@@ -1,8 +1,8 @@
-# hevo-go
+# hevo-go-sdk
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/hevoio/hevo-go.svg)](https://pkg.go.dev/github.com/hevoio/hevo-go)
-[![Testing](https://img.shields.io/github/actions/workflow/status/hevoio/hevo-go/testing.yml?branch=main)](https://github.com/hevoio/hevo-go/actions)
-[![License](https://img.shields.io/github/license/hevoio/hevo-go)](./LICENSE)
+[![Go Reference](https://pkg.go.dev/badge/github.com/hevoio/hevo-go-sdk.svg)](https://pkg.go.dev/github.com/hevoio/hevo-go-sdk)
+[![Testing](https://img.shields.io/github/actions/workflow/status/hevoio/hevo-go-sdk/testing.yml?branch=main)](https://github.com/hevoio/hevo-go-sdk/actions)
+[![License](https://img.shields.io/github/license/hevoio/hevo-go-sdk)](./LICENSE)
 
 The Go SDK for [Hevo](https://hevodata.com)'s API. The
 [Hevo Terraform provider](https://github.com/hevoio/terraform-provider-hevo) is built on it.
@@ -10,7 +10,7 @@ The Go SDK for [Hevo](https://hevodata.com)'s API. The
 ## Getting started
 
 ```sh
-go get github.com/hevoio/hevo-go
+go get github.com/hevoio/hevo-go-sdk
 ```
 
 ```go

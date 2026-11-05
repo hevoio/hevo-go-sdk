@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // GetDestinationService reads one Destination.

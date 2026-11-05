@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/hevoio/hevo-go"
-	pipelineobjects "github.com/hevoio/hevo-go/pipeline_objects"
-	testutils "github.com/hevoio/hevo-go/test_utils"
-	"github.com/hevoio/hevo-go/tests/mock"
+	"github.com/hevoio/hevo-go-sdk"
+	pipelineobjects "github.com/hevoio/hevo-go-sdk/pipeline_objects"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
+	"github.com/hevoio/hevo-go-sdk/tests/mock"
 )
 
 func TestUpdatePipelineObjectsMock(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	testutils "github.com/hevoio/hevo-go/test_utils"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
 )
 
 func TestListSourceConnectorsMock(t *testing.T) {

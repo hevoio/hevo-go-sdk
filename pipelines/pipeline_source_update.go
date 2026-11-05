@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // UpdatePipelineSourceService changes the Pipeline's Source: its name, settings or OAuth

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // DisablePipelineService pauses a Pipeline. It runs asynchronously: the Pipeline reports Disabling, then Disabled.

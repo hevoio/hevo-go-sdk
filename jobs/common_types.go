@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/hevoio/hevo-go/common"
+	"github.com/hevoio/hevo-go-sdk/common"
 )
 
 // Job is one run of a Pipeline.

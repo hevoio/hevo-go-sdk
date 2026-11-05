@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // UpdatePipelineService changes a Pipeline's settings. Only the fields set are sent. The edit runs

@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hevoio/hevo-go"
-	testutils "github.com/hevoio/hevo-go/test_utils"
+	"github.com/hevoio/hevo-go-sdk"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
 )
 
 // e2eDestination reads HEVO_E2E_DESTINATION: {"connector_id": "...", "config": {...}} with

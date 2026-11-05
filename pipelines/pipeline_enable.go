@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // EnablePipelineService starts a Pipeline replicating. It needs at least one selected object. It runs asynchronously: the Pipeline reports Enabling, then Initialized.

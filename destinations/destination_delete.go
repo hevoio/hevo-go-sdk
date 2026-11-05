@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"strconv"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // DeleteDestinationService deletes a Destination. Deletion runs asynchronously; the response is

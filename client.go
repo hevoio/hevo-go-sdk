@@ -19,12 +19,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hevoio/hevo-go/destinations"
-	httputils "github.com/hevoio/hevo-go/http_utils"
-	"github.com/hevoio/hevo-go/jobs"
-	"github.com/hevoio/hevo-go/metadata"
-	pipelineobjects "github.com/hevoio/hevo-go/pipeline_objects"
-	"github.com/hevoio/hevo-go/pipelines"
+	"github.com/hevoio/hevo-go-sdk/destinations"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
+	"github.com/hevoio/hevo-go-sdk/jobs"
+	"github.com/hevoio/hevo-go-sdk/metadata"
+	pipelineobjects "github.com/hevoio/hevo-go-sdk/pipeline_objects"
+	"github.com/hevoio/hevo-go-sdk/pipelines"
 )
 
 // Version is the SDK's version. Update it on each release.

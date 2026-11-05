@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/hevoio/hevo-go"
+	"github.com/hevoio/hevo-go-sdk"
 )
 
 func main() {

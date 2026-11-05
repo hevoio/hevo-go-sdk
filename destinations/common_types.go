@@ -1,7 +1,7 @@
 // Package destinations manages Destinations: where Pipelines load data.
 package destinations
 
-import "github.com/hevoio/hevo-go/common"
+import "github.com/hevoio/hevo-go-sdk/common"
 
 // DestinationDetails is one Destination. Credentials in Config come back masked.
 type DestinationDetails struct {

@@ -5,7 +5,7 @@ package e2e_test
 import (
 	"testing"
 
-	testutils "github.com/hevoio/hevo-go/test_utils"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
 )
 
 func TestSourceConnectorsE2E(t *testing.T) {

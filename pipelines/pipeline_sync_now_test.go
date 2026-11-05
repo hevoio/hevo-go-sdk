@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"testing"
 
-	testutils "github.com/hevoio/hevo-go/test_utils"
-	"github.com/hevoio/hevo-go/tests/mock"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
+	"github.com/hevoio/hevo-go-sdk/tests/mock"
 )
 
 func TestSyncPipelineNowMock(t *testing.T) {

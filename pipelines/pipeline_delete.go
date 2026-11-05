@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // DeletePipelineService deletes a Pipeline. Deletion runs asynchronously: the response is Accepted and the Pipeline reports Deleting until it is gone.

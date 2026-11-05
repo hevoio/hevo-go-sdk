@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hevoio/hevo-go"
-	"github.com/hevoio/hevo-go/tests/mock"
+	"github.com/hevoio/hevo-go-sdk"
+	"github.com/hevoio/hevo-go-sdk/tests/mock"
 )
 
 const (

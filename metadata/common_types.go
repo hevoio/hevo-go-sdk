@@ -5,7 +5,7 @@ package metadata
 import (
 	"net/url"
 
-	"github.com/hevoio/hevo-go/common"
+	"github.com/hevoio/hevo-go-sdk/common"
 )
 
 // Connector is one source or destination connector.

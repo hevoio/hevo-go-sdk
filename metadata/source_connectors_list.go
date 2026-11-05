@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // ListSourceConnectorsService lists the connectors a Pipeline's Source can use.

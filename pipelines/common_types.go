@@ -4,7 +4,7 @@ package pipelines
 import (
 	"fmt"
 
-	"github.com/hevoio/hevo-go/common"
+	"github.com/hevoio/hevo-go-sdk/common"
 )
 
 // PipelineDetails is one Pipeline as the API returns it.

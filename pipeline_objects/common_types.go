@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/hevoio/hevo-go/common"
+	"github.com/hevoio/hevo-go-sdk/common"
 )
 
 // PipelineObject is one Source object of a Pipeline, such as a table or an API resource.

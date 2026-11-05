@@ -3,8 +3,8 @@ package pipelines_test
 import (
 	"testing"
 
-	"github.com/hevoio/hevo-go/pipelines"
-	testutils "github.com/hevoio/hevo-go/test_utils"
+	"github.com/hevoio/hevo-go-sdk/pipelines"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
 )
 
 const pipelineJSON = `{

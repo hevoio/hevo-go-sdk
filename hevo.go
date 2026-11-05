@@ -1,9 +1,9 @@
 package hevo
 
 import (
-	httputils "github.com/hevoio/hevo-go/http_utils"
-	pipelineobjects "github.com/hevoio/hevo-go/pipeline_objects"
-	"github.com/hevoio/hevo-go/pipelines"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
+	pipelineobjects "github.com/hevoio/hevo-go-sdk/pipeline_objects"
+	"github.com/hevoio/hevo-go-sdk/pipelines"
 )
 
 // NewSource starts the Source of a new Pipeline, for CreatePipeline.

@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/hevoio/hevo-go"
-	testutils "github.com/hevoio/hevo-go/test_utils"
-	"github.com/hevoio/hevo-go/tests/mock"
+	"github.com/hevoio/hevo-go-sdk"
+	testutils "github.com/hevoio/hevo-go-sdk/test_utils"
+	"github.com/hevoio/hevo-go-sdk/tests/mock"
 )
 
 func TestUpdatePipelineSourceMock(t *testing.T) {

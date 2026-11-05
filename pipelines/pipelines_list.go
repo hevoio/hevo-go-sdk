@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // ListPipelinesService lists the team's Pipelines one page at a time, optionally filtered.

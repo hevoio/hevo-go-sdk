@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	httputils "github.com/hevoio/hevo-go/http_utils"
+	httputils "github.com/hevoio/hevo-go-sdk/http_utils"
 )
 
 // CreatePipelineService creates a Pipeline from a new Source into an existing Destination. The
