@@ -13,12 +13,18 @@ import (
 	"time"
 )
 
-const maxBackoff = 30 * time.Second
+const (
+	maxBackoff = 30 * time.Second
+	// maxRateLimitWait caps the wait a 429 asks for. A longer one is returned as the 429 rather
+	// than slept through.
+	maxRateLimitWait = time.Minute
+)
 
 // Request is one call to the API, with its retry policy:
 //
 //   - 429 on any method: the gateway rejected the call before it reached Hevo. It waits for
-//     Retry-After, else X-RateLimit-Reset, else backs off.
+//     Retry-After, else X-RateLimit-Reset, else backs off. A wait over maxRateLimitWait is not
+//     retried.
 //   - 502, 503, 504 and network errors, on GET and DELETE only. A POST or PATCH that failed this
 //     way may have been applied, so it goes back to the caller to reconcile.
 type Request struct {
@@ -31,6 +37,9 @@ type Request struct {
 
 	HandleRateLimits bool
 	MaxRetryAttempts int
+	// Slots caps the requests in flight; nil means no cap. A slot is held for each attempt, not
+	// while waiting to retry.
+	Slots chan struct{}
 
 	// backoffOverride replaces the exponential backoff in tests.
 	backoffOverride time.Duration
@@ -43,7 +52,7 @@ func (req *Request) Do(ctx context.Context) ([]byte, int, http.Header, error) {
 	}
 
 	for attempt := 0; ; attempt++ {
-		body, status, header, err := req.send(ctx)
+		body, status, header, err := req.sendInSlot(ctx)
 
 		wait, retry := req.shouldRetry(status, header, err, attempt)
 		if !retry {
@@ -56,6 +65,15 @@ func (req *Request) Do(ctx context.Context) ([]byte, int, http.Header, error) {
 			return nil, 0, nil, err
 		}
 	}
+}
+
+func (req *Request) sendInSlot(ctx context.Context) ([]byte, int, http.Header, error) {
+	if err := req.acquire(ctx); err != nil {
+		return nil, 0, nil, err
+	}
+	defer req.release()
+
+	return req.send(ctx)
 }
 
 func (req *Request) send(ctx context.Context) ([]byte, int, http.Header, error) {
@@ -113,7 +131,7 @@ func (req *Request) shouldRetry(status int, header http.Header, err error, attem
 		}
 
 		if limitWait, ok := rateLimitWait(header); ok {
-			return limitWait, true
+			return limitWait, limitWait <= maxRateLimitWait
 		}
 
 		return wait, true
@@ -121,6 +139,25 @@ func (req *Request) shouldRetry(status int, header http.Header, err error, attem
 		return wait, isIdempotent
 	default:
 		return 0, false
+	}
+}
+
+func (req *Request) acquire(ctx context.Context) error {
+	if req.Slots == nil {
+		return nil
+	}
+
+	select {
+	case req.Slots <- struct{}{}:
+		return nil
+	case <-ctx.Done():
+		return fmt.Errorf("hevo: waiting for a request slot: %w", ctx.Err())
+	}
+}
+
+func (req *Request) release() {
+	if req.Slots != nil {
+		<-req.Slots
 	}
 }
 

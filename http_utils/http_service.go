@@ -49,11 +49,6 @@ func (s HTTPService) Do(
 		headers["Content-Type"] = "application/json"
 	}
 
-	if err := s.acquire(ctx); err != nil {
-		return err
-	}
-	defer s.release()
-
 	r := Request{
 		Method:           method,
 		URL:              s.BaseURL + path,
@@ -63,6 +58,7 @@ func (s HTTPService) Do(
 		Client:           s.Client,
 		HandleRateLimits: s.HandleRateLimits,
 		MaxRetryAttempts: s.MaxRetryAttempts,
+		Slots:            s.Slots,
 	}
 
 	respBody, status, header, err := r.Do(ctx)
@@ -83,23 +79,4 @@ func (s HTTPService) Do(
 	}
 
 	return nil
-}
-
-func (s HTTPService) acquire(ctx context.Context) error {
-	if s.Slots == nil {
-		return nil
-	}
-
-	select {
-	case s.Slots <- struct{}{}:
-		return nil
-	case <-ctx.Done():
-		return fmt.Errorf("hevo: waiting for a request slot: %w", ctx.Err())
-	}
-}
-
-func (s HTTPService) release() {
-	if s.Slots != nil {
-		<-s.Slots
-	}
 }

@@ -129,7 +129,7 @@ func TestRequestDoStopsWaitingWhenContextEnds(t *testing.T) {
 		Method: http.MethodGet,
 		URL:    "https://us.hevodata.com/api/v2/pipelines",
 		Client: clientFunc(func(*http.Request) (*http.Response, error) {
-			return reply(http.StatusTooManyRequests, http.Header{headerRetryAfter: {"3600"}}), nil
+			return reply(http.StatusTooManyRequests, http.Header{headerRetryAfter: {"60"}}), nil
 		}),
 		HandleRateLimits: true,
 		MaxRetryAttempts: 5,
