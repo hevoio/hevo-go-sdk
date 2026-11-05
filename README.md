@@ -1,7 +1,7 @@
 # hevo-go
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/hevoio/hevo-go.svg)](https://pkg.go.dev/github.com/hevoio/hevo-go)
-[![Testing](https://img.shields.io/github/actions/workflow/status/hevoio/hevo-go/testing.yml?branch=master)](https://github.com/hevoio/hevo-go/actions)
+[![Testing](https://img.shields.io/github/actions/workflow/status/hevoio/hevo-go/testing.yml?branch=main)](https://github.com/hevoio/hevo-go/actions)
 [![License](https://img.shields.io/github/license/hevoio/hevo-go)](./LICENSE)
 
 The Go SDK for [Hevo](https://hevodata.com)'s API. The
